@@ -1,0 +1,18 @@
+{
+  "name": "බස් සේවා - බලංගොඩ",
+  "short_name": "බස් සේවා",
+  "description": "බලංගොඩ ප්‍රවාහන බස් වේලාවන් සෙවීම සඳහා",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#745df7",
+  "theme_color": "#5b4bf5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "bus.svg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any "
+    }
+  ]
+}

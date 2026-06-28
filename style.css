@@ -1,0 +1,184 @@
+:root {
+  --primary: #5742ff;
+  --header-bg: #5b4bf5eb;
+  --bg: rgb(160, 129, 255);
+  --card-bg: #000000;
+  --text-dark: #2e2e2e;
+  --accent: #ccaafc;
+  --result-bg: #000000;
+  --result-text: #9b9cd7;
+  --transition: 300ms cubic-bezier(.22,.9,.3,1);
+}
+
+* { box-sizing: border-box; }
+body {
+  background-color: var(--bg);
+  margin: 0;
+  padding-top: 55px;
+  padding-bottom: 90px;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header {
+  height: 50px;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--primary);
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+img{margin: 0;}
+
+.hr1 {
+  position: fixed; left: 0; right: 0; top: 50px;
+  border: solid 2px #ffffff63; width: 100%; margin:0;
+}
+
+
+.main-container {
+  display: flex;
+  
+  flex: 1;
+  height: calc(105vh - 110px);
+  overflow: hidden;
+}
+
+.left-panel {
+  
+  width: 375px;
+  max-width: 100%;
+  padding: 10px 4px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.map-container {
+  flex: 1;
+  position: relative;
+  border-left: 3px solid rgba(255,255,255,0.2);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  box-shadow: 1px 2px 5px #000000;
+  border-radius: 5px;
+  padding: 12px;
+  background-color: var(--card-bg);
+  color: var(--text-dark);
+  
+}
+
+.result-card {
+  background-color: var(--result-bg);
+  color: var(--result-text);
+  min-height: 180px;
+}
+
+label {
+  display: block;
+  padding: 2px;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+select, input[type="time"], input[type="number"] {
+  width: 100%;
+  font-size: 15px;
+  padding: 6px;
+  font-weight: bold;
+  border: 1px solid #292929;
+  border-radius: 4px;
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+
+.searchBtn {
+  text-align: center;
+  display: block;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  box-shadow: 1px 2px 5px #2a19e8;
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+
+.searchBtn:active { transform: scale(0.98); }
+
+.pill {
+  float: right;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+.pill.sltb { background-color: #ef4444; }
+.pill.private { background-color: #10b981; }
+
+.nav-btns { display: flex; gap: 8px; margin-top: 10px; }
+.btn-sm {
+  flex: 1; padding: 6px; border-radius: 4px; border: none;
+  background: #333333; color: white; cursor: pointer; font-weight: bold;
+}
+
+.map-buttons {
+  position: absolute; left: 12px; bottom: 12px;
+  display: flex; flex-direction: column; gap: 8px; z-index: 999;
+}
+.map-buttons button {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: white; border: 1px solid #ccc; color: #333;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.map-buttons button.active { background: var(--primary); color: #121212; }
+
+.bus-sim-icon {
+  background: var(--primary); color: #ffffff; padding: 6px;
+  border-radius: 8px; font-size: 14px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+footer {
+  font-weight: bold; font-size: 15px; position: fixed;
+  left: 0; right: 0; bottom: 0; z-index: 1000;
+}
+nav {
+  display: flex; background-color: #000000; color: rgb(159,159,159);
+  height: 45px;
+  justify-content: space-around; align-items: center;
+}
+nav div { cursor: pointer; padding: 5px 10px; }
+nav div:hover { color: white; }
+
+
+.fullscreen .left-panel, .fullscreen header { display: none !important; }
+.fullscreen .main-container { height: 100vh; width: 100vw; }
+
+
+
+@media (max-width: 300px) {
+  .main-container { flex-direction: column; overflow-y: auto; height: auto; }
+  .left-panel { width: 100%; overflow-y: visible; }
+  .map-container { height: 300px; width: 100%; }
+}
